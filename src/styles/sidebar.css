@@ -1,0 +1,17 @@
+.sidebar_div {
+  background-color: #f8f8f8;
+  height: 100vh;
+}
+
+.channels {
+  position: relative;
+  top: 17vh;
+  font-size: 1.5rem;
+  left: 3vh;
+}
+.channels:hover {
+  cursor: pointer;
+}
+.icon_side:hover {
+  cursor: pointer;
+}

@@ -1,5 +1,5 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="parent">
       <div className="nav">
-        <Navbar />
+        <Header />
       </div>
       <div className="side">
         <Sidebar />

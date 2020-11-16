@@ -1,0 +1,14 @@
+.header_div {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+}
+
+.header_right {
+  position: absolute;
+  right: 12vh;
+}
