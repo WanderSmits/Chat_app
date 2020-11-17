@@ -9,7 +9,8 @@
   font-size: 1.5rem;
   left: 3vh;
 }
-.channels:hover {
+
+.add_channel:hover {
   cursor: pointer;
 }
 .icon_side:hover {

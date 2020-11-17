@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import SidebarChannel from "./SidebarChannel";
 import "../styles/sidebar.css";
 import AddIcon from "@material-ui/icons/Add";
-import InsertCommentIcon from "@material-ui/icons/InsertCommentRounded";
 import db from "../firebase";
+import { useStateValue } from "../StateProvider";
 
 function Sidebar() {
   const [channels, setChannels] = useState([]);
@@ -22,7 +22,9 @@ function Sidebar() {
     <div className="sidebar_div">
       <div className="channels">
         <h3>Add Channel</h3>
-        <AddIcon />
+        <div className="add_channel">
+          <SidebarChannel Icon={AddIcon} addChannelOption />
+        </div>
         <div className="icon_side">
           {channels.map((channel) => (
             <SidebarChannel title={channel.name} id={channel.id} />
