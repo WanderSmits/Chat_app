@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Message from "./Message";
 import ChatInput from "./ChatInput";
 import "../styles/Chat.css";
@@ -9,11 +9,12 @@ function Chat() {
   const { channelId } = useParams();
   const [channelDetails, setChannelDetails] = useState(null);
   const [messages, setMessages] = useState([]);
+  const messageEl = useRef(null);
 
   //uses the params of the channelId to fetch details from the db
   useEffect(() => {
-    console.log(channelId);
     if (channelId) {
+      console.log(channelId);
       //   //when you click channel you will send id over
       db.collection("channels")
         .doc(channelId)
@@ -28,15 +29,25 @@ function Chat() {
       );
   }, [channelId]);
 
+  useEffect(() => {
+    if (messageEl) {
+      messageEl.current.addEventListener("DOMNodeInserted", (event) => {
+        const { currentTarget: target } = event;
+        target.scroll({ top: target.scrollHeight, behavior: "smooth" });
+      });
+    }
+  }, [messageEl]);
+
   return (
     <div className="chat">
       {/* es7 has ? is optional chaining, instant try catch  */}
-      <div className="chat__header">
+      <div className="chat__header" target="_blank">
         <h1>{channelDetails?.name}</h1>
       </div>
-      <div className="chat_messages">
-        {messages.map(({ message, timestamp, user, userImage }) => (
+      <div className="chat_messages" ref={messageEl}>
+        {messages.map(({ message, timestamp, user, userImage, id }) => (
           <Message
+            key={id}
             message={message}
             timestamp={timestamp}
             user={user}
@@ -44,6 +55,7 @@ function Chat() {
           />
         ))}
       </div>
+      <div className="chat_input"></div>
       <ChatInput channelName={channelDetails?.name} channelId={channelId} />
     </div>
   );

@@ -1,0 +1,26 @@
+.chat_input {
+  height: 10vh;
+  border-radius: 20px;
+  max-width: 50vh;
+}
+
+.chat_input > form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.text-field {
+  position: fixed;
+  bottom: 2vh;
+  left: 30%;
+  width: 49%;
+  border-radius: 3px;
+  padding: 20px;
+}
+
+.chat_button {
+  position: fixed;
+  right: 20%;
+  bottom: 4vh;
+}

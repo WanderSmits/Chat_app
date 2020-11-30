@@ -11,12 +11,39 @@
 
 .nav {
   grid-area: 1 / 2 / 2 / 5;
+  -webkit-animation: moveFromTop 1s ease both;
+  animation: moveFromTop 1s ease both;
+}
+
+@-webkit-keyframes moveFromTop {
+  from {
+    -webkit-transform: translateY(-100%);
+  }
+}
+@keyframes moveFromTop {
+  from {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
 }
 
 .side {
   grid-area: 1 / 1 / 5 / 2;
+  -webkit-animation: side 1.5s ease both;
+  animation: side 1.5s ease both;
+}
+@-webkit-keyframes side {
+  from {
+    -webkit-transform: translateX(-100%);
+  }
+}
+@keyframes side {
+  from {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
 }
 
-.main {
+.chat {
   grid-area: 2 / 2 / 5 / 5;
 }

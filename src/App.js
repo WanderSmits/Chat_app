@@ -4,11 +4,11 @@ import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
 import Chat from "./components/Chat";
 import Login from "./components/Login";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 
 function App() {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
 
   return (
     <>
@@ -23,14 +23,14 @@ function App() {
             <div className="side">
               <Sidebar />
             </div>
-            <div className="main">
-              <Main />
-              <Switch>
-                <Route path="/channel/:channelId">
-                  <Chat />
-                </Route>
-                <Route path="/"></Route>
-              </Switch>
+
+            <div className="chat">
+              <Route exact path="/" component={Main}>
+                <Main />
+              </Route>
+              <Route path="/channel/:channelId">
+                <Chat />
+              </Route>
             </div>
           </Router>
         </div>

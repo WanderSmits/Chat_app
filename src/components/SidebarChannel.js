@@ -1,9 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import "../styles/sidebarOption.css";
-import db from "../firebase";
+import AddIcon from "@material-ui/icons/Add";
+import ChatIcon from "@material-ui/icons/Chat";
 
-function SidebarChannel({ Icon, title, id, addChannelOption }) {
+function SidebarChannel({ Icon, title, id }) {
   // when you click on icon, push next page into history, force redirect
   const history = useHistory();
 
@@ -15,20 +16,12 @@ function SidebarChannel({ Icon, title, id, addChannelOption }) {
     }
   };
 
-  const addChannel = () => {
-    const channelName = prompt("Please enter the channel name");
-
-    if (channelName) {
-      db.collection("channels").add({ name: channelName });
-    }
-  };
   return (
-    <div
-      className="sidebarOption"
-      onClick={addChannelOption ? addChannel : selectChannel}
-    >
-      {Icon && <Icon className="sidebarOption_icon" />}
-      {Icon ? <h4>{title}</h4> : <h4># {title}</h4>}
+    <div className="sidebarOption" onClick={selectChannel}>
+      {Icon && <AddIcon className="sidebarOption_icon" />}
+      <h4>
+        <ChatIcon /> {title}
+      </h4>
     </div>
   );
 }

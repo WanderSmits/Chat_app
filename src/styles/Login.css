@@ -6,7 +6,7 @@
 }
 
 .login_container {
-  padding: 5vh;
+  padding: 10vh;
   text-align: center;
   border-radius: 5vh;
 }
@@ -17,8 +17,10 @@
   margin-bottom: 40px;
 }
 
-.login_container > button {
-  text-transform: inherit !important;
-  background-color: aquamarine;
-  color: white;
+.signIn_buttons {
+  position: absolute;
+
+  border: red solid;
+  position: absolute;
+  bottom: 5px;
 }

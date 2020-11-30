@@ -1,0 +1,15 @@
+.cards {
+  align-items: center;
+  text-align: center;
+  margin: 2vh;
+  display: inline-block;
+  width: 33vh;
+}
+
+.cards:hover {
+  transform: scale(1.05);
+}
+
+.media {
+  height: 24vh;
+}

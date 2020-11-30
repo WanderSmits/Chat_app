@@ -4,6 +4,7 @@ import { Button } from "@material-ui/core";
 import { auth, provider } from "../firebase";
 import { useStateValue } from "../StateProvider";
 import { actionTypes } from "../reducer";
+
 function Login() {
   const [state, dispatch] = useStateValue();
 
@@ -27,7 +28,14 @@ function Login() {
         />
         <h1>Sign in </h1>
         <p>to am Lonely</p>
-        <Button onClick={signIn}>Sign in with Google</Button>
+        <div className="signin_buttons">
+          {/* <div className="signIn_google"> */}
+          <Button onClick={signIn}>Sign in with Google</Button>
+          {/* </div> */}
+          {/* <div className="signIn_anon"> */}
+          <Button onClick={signIn}>Sign in Anonymously</Button>
+          {/* </div> */}
+        </div>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@
   height: 50px;
   width: 50px;
   object-fit: contain;
+  border-radius: 50%;
 }
 
 .message_info {
@@ -16,5 +17,5 @@
 
 .message_time {
   color: grey;
-  font-weight: 300;
+  opacity: 0.85;
 }

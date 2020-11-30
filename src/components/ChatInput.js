@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import db from "../firebase";
 import "../styles/ChatInput.css";
 import { useStateValue } from "../StateProvider";
+import Button from "@material-ui/core/Button";
+import SendIcon from "@material-ui/icons/Send";
+import TextField from "@material-ui/core/TextField";
 import firebase from "firebase";
 
 function ChatInput({ channelName, channelId }) {
@@ -10,8 +13,6 @@ function ChatInput({ channelName, channelId }) {
 
   const sendMessage = (e) => {
     e.preventDefault();
-    console.log(e);
-    console.log(input);
 
     if (channelId) {
       db.collection("channels").doc(channelId).collection("messages").add({
@@ -26,16 +27,33 @@ function ChatInput({ channelName, channelId }) {
 
   return (
     <div className="chat_input">
-      <form>
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder={`Message ${channelName}`}
-        />
-        <button type="submit" onClick={sendMessage}>
-          Send
-        </button>
-      </form>
+      {channelName ? (
+        <form>
+          <div className="text-field">
+            {" "}
+            <TextField
+              fullWidth
+              variant="filled"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder={`Message ${channelName}`}
+            />
+          </div>
+
+          <div className="chat_button">
+            <Button
+              type="submit"
+              onClick={sendMessage}
+              variant="contained"
+              color="primary"
+              size="small"
+              endIcon={<SendIcon>send</SendIcon>}
+            >
+              Send
+            </Button>
+          </div>
+        </form>
+      ) : null}
     </div>
   );
 }
